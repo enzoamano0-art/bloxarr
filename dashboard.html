@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloxar — Home</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">BLOXAR</div>
+  <div class="robux-display"><span id="robuxCount">0</span> R$</div>
+  <div class="avatar" id="avatar">?</div>
+</header>
+<section class="dash-hero">
+  <h1>Welcome back, <span id="uname">Player</span></h1>
+  <div class="stats">
+    <div class="stat"><strong id="statRobux">0</strong><span>Robux</span></div>
+    <div class="stat"><strong>142</strong><span>Friends</span></div>
+    <div class="stat"><strong>8.7k</strong><span>Plays</span></div>
+  </div>
+</section>
+<section class="games">
+  <h2>Continue Playing</h2>
+  <div class="grid" id="dashGrid"></div>
+</section>
+<script>
+  // hydrate from localStorage (set by login flow)
+  const s = JSON.parse(localStorage.getItem('bloxar_session') || '{}');
+  if (s.username) document.getElementById('uname').textContent = s.username;
+  if (s.robux !== undefined) {
+    document.getElementById('robuxCount').textContent = s.robux;
+    document.getElementById('statRobux').textContent = s.robux;
+  }
+  // simple tile grid
+  const grid = document.getElementById('dashGrid');
+  for (let i = 0; i < 8; i++) {
+    const d = document.createElement('div');
+    d.className = 'game-tile';
+    d.textContent = 'Experience ' + (i + 1);
+    grid.appendChild(d);
+  }
+</script>
+</body>
+</html>

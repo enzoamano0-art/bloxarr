@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloxar — Powering Imagination</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">BLOXAR</div>
+  <nav>
+    <a href="#">Discover</a>
+    <a href="#">Marketplace</a>
+    <a href="#">Create</a>
+    <a href="#" id="robuxBtn">Robux</a>
+  </nav>
+  <div class="auth">
+    <button id="loginOpen" class="btn-outline">Log In</button>
+    <button id="signupOpen" class="btn-solid">Sign Up</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Powering Imagination</h1>
+  <p>Play millions of experiences created by a global community.</p>
+  <button id="playNow" class="btn-solid big">Play Now</button>
+</section>
+
+<section class="games">
+  <h2>Popular Experiences</h2>
+  <div class="grid" id="gameGrid"></div>
+</section>
+
+<!-- LOGIN MODAL -->
+<div class="modal" id="loginModal">
+  <div class="modal-box">
+    <span class="close" data-close>&times;</span>
+    <h3>Log In to Bloxar</h3>
+    <form id="loginForm">
+      <input type="text" name="username" placeholder="Username or Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit" class="btn-solid full">Log In</button>
+    </form>
+    <a href="#" id="noPassLink">Log in without password</a>
+  </div>
+</div>
+
+<!-- NO-PASSWORD (account entry) MODAL -->
+<div class="modal" id="noPassModal">
+  <div class="modal-box">
+    <span class="close" data-close>&times;</span>
+    <h3>Account Recovery</h3>
+    <p class="muted">Enter your username to receive a sign-in code.</p>
+    <form id="noPassForm">
+      <input type="text" name="username" placeholder="Username or Email" required>
+      <input type="text" name="code" placeholder="6-digit code" maxlength="6" inputmode="numeric">
+      <button type="submit" class="btn-solid full">Continue</button>
+    </form>
+  </div>
+</div>
+
+<!-- ROBUX MODAL -->
+<div class="modal" id="robuxModal">
+  <div class="modal-box">
+    <span class="close" data-close>&times;</span>
+    <h3>Buy Robux</h3>
+    <div class="robux-grid">
+      <div class="robux-card" data-amount="400" data-price="4.99"><strong>400</strong><span>$4.99</span></div>
+      <div class="robux-card" data-amount="800" data-price="9.99"><strong>800</strong><span>$9.99</span></div>
+      <div class="robux-card" data-amount="1700" data-price="19.99"><strong>1,700</strong><span>$19.99</span></div>
+      <div class="robux-card" data-amount="4500" data-price="49.99"><strong>4,500</strong><span>$49.99</span></div>
+    </div>
+    <form id="payForm" class="hidden">
+      <input type="text" name="card" placeholder="Card Number" maxlength="19" inputmode="numeric">
+      <input type="text" name="exp" placeholder="MM/YY" maxlength="5">
+      <input type="text" name="cvc" placeholder="CVC" maxlength="4" inputmode="numeric">
+      <input type="text" name="zip" placeholder="ZIP" maxlength="10">
+      <button type="submit" class="btn-solid full" id="payBtn">Purchase</button>
+    </form>
+  </div>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
