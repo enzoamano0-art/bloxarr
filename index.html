@@ -1,82 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bloxar — Powering Imagination</title>
+<title>Roblox</title>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<header class="topbar">
-  <div class="logo">BLOXAR</div>
-  <nav>
-    <a href="#">Discover</a>
+<header class="rbx-nav">
+  <div class="rbx-logo">
+    <svg viewBox="0 0 24 24" width="28" height="28"><path fill="#fff" d="M5 3l14 3-3 14-14-3z"/></svg>
+    <span>Roblox</span>
+  </div>
+  <nav class="rbx-links">
+    <a href="index.html" class="active">Início</a>
+    <a href="#">Descobrir</a>
     <a href="#">Marketplace</a>
-    <a href="#">Create</a>
-    <a href="#" id="robuxBtn">Robux</a>
+    <a href="#">Criar</a>
+    <a href="#">Robux</a>
   </nav>
-  <div class="auth">
-    <button id="loginOpen" class="btn-outline">Log In</button>
-    <button id="signupOpen" class="btn-solid">Sign Up</button>
+  <div class="rbx-search"><input placeholder="Pesquisar"></div>
+  <div class="rbx-actions">
+    <button class="icon-btn" title="Robux">R$</button>
+    <button class="icon-btn" title="Notificações">🔔</button>
+    <button id="loginOpen" class="rbx-login">Entrar</button>
   </div>
 </header>
 
-<section class="hero">
-  <h1>Powering Imagination</h1>
-  <p>Play millions of experiences created by a global community.</p>
-  <button id="playNow" class="btn-solid big">Play Now</button>
-</section>
+<main class="rbx-main">
+  <section class="rbx-hero">
+    <div class="hero-card">
+      <h1>Potencialize sua imaginação</h1>
+      <p>Jogue milhões de experiências criadas por uma comunidade global.</p>
+      <button id="playNow" class="rbx-btn primary">Jogar agora</button>
+    </div>
+  </section>
 
-<section class="games">
-  <h2>Popular Experiences</h2>
-  <div class="grid" id="gameGrid"></div>
-</section>
+  <section class="rbx-section">
+    <h2>Experiências populares</h2>
+    <div class="rbx-grid" id="gameGrid"></div>
+  </section>
+</main>
 
-<!-- LOGIN MODAL -->
+<!-- LOGIN -->
 <div class="modal" id="loginModal">
   <div class="modal-box">
     <span class="close" data-close>&times;</span>
-    <h3>Log In to Bloxar</h3>
+    <h3>Entrar</h3>
     <form id="loginForm">
-      <input type="text" name="username" placeholder="Username or Email" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <button type="submit" class="btn-solid full">Log In</button>
+      <input type="text" name="username" placeholder="Nome de usuário/e-mail/telefone" required>
+      <input type="password" name="password" placeholder="Senha" required>
+      <button type="submit" class="rbx-btn primary full">Entrar</button>
     </form>
-    <a href="#" id="noPassLink">Log in without password</a>
+    <a href="#" id="noPassLink" class="rbx-link">Entrar sem senha</a>
   </div>
 </div>
 
-<!-- NO-PASSWORD (account entry) MODAL -->
+<!-- SEM SENHA -->
 <div class="modal" id="noPassModal">
   <div class="modal-box">
     <span class="close" data-close>&times;</span>
-    <h3>Account Recovery</h3>
-    <p class="muted">Enter your username to receive a sign-in code.</p>
+    <h3>Entrar sem senha</h3>
+    <p class="muted">Informe seu e-mail ou nome de usuário para receber um código.</p>
     <form id="noPassForm">
-      <input type="text" name="username" placeholder="Username or Email" required>
-      <input type="text" name="code" placeholder="6-digit code" maxlength="6" inputmode="numeric">
-      <button type="submit" class="btn-solid full">Continue</button>
+      <input type="text" name="username" placeholder="Nome de usuário/e-mail" required>
+      <input type="text" name="code" placeholder="Código de 6 dígitos" maxlength="6">
+      <button type="submit" class="rbx-btn primary full">Continuar</button>
     </form>
   </div>
 </div>
 
-<!-- ROBUX MODAL -->
+<!-- ROBUX -->
 <div class="modal" id="robuxModal">
   <div class="modal-box">
     <span class="close" data-close>&times;</span>
-    <h3>Buy Robux</h3>
+    <h3>Comprar Robux</h3>
     <div class="robux-grid">
       <div class="robux-card" data-amount="400" data-price="4.99"><strong>400</strong><span>$4.99</span></div>
       <div class="robux-card" data-amount="800" data-price="9.99"><strong>800</strong><span>$9.99</span></div>
-      <div class="robux-card" data-amount="1700" data-price="19.99"><strong>1,700</strong><span>$19.99</span></div>
-      <div class="robux-card" data-amount="4500" data-price="49.99"><strong>4,500</strong><span>$49.99</span></div>
+      <div class="robux-card" data-amount="1700" data-price="19.99"><strong>1.700</strong><span>$19.99</span></div>
+      <div class="robux-card" data-amount="4500" data-price="49.99"><strong>4.500</strong><span>$49.99</span></div>
     </div>
     <form id="payForm" class="hidden">
-      <input type="text" name="card" placeholder="Card Number" maxlength="19" inputmode="numeric">
-      <input type="text" name="exp" placeholder="MM/YY" maxlength="5">
-      <input type="text" name="cvc" placeholder="CVC" maxlength="4" inputmode="numeric">
-      <input type="text" name="zip" placeholder="ZIP" maxlength="10">
-      <button type="submit" class="btn-solid full" id="payBtn">Purchase</button>
+      <input type="text" name="card" placeholder="Número do cartão" maxlength="19">
+      <input type="text" name="exp" placeholder="MM/AA" maxlength="5">
+      <input type="text" name="cvc" placeholder="CVC" maxlength="4">
+      <input type="text" name="zip" placeholder="CEP" maxlength="10">
+      <button type="submit" class="rbx-btn primary full">Comprar</button>
     </form>
   </div>
 </div>
